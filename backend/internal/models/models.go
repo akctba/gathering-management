@@ -32,7 +32,7 @@ type Invitee struct {
 	FoodPlate   *FoodPlate `gorm:"foreignKey:FoodPlateID"`
 	BeverageID  *uint
 	Beverage    *Beverage `gorm:"foreignKey:BeverageID"`
-	RSVP        bool
+	RSVPStatus  string    `gorm:"default:'pending'"` // Can be 'pending', 'accepted', or 'declined'
 }
 
 type FoodPlate struct {

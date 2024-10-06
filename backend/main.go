@@ -30,6 +30,10 @@ func main() {
 	r.POST("/register", handlers.Register)
 	r.POST("/login", handlers.Login)
 
+	// RSVP routes (public, but with gathering and invitee ID validation)
+	r.POST("/rsvp/:gatheringID/:inviteeID", handlers.HandleRSVP)
+	r.GET("/rsvp/:gatheringID/:inviteeID", handlers.GetRSVPStatus)
+
 	// Protected routes
 	protected := r.Group("/api")
 	protected.Use(middleware.AuthMiddleware())
