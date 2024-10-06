@@ -41,14 +41,26 @@ func main() {
 		protected.PUT("/gatherings/:id", handlers.UpdateGathering)
 		protected.DELETE("/gatherings/:id", handlers.DeleteGathering)
 
-		// Placeholder for future routes
-		protected.GET("/ping", func(c *gin.Context) {
-			userID, _ := c.Get("userID")
-			c.JSON(200, gin.H{
-				"message": "pong",
-				"userID":  userID,
-			})
-		})
+		// Invitee routes
+		protected.POST("/gatherings/:gatheringID/invitees", handlers.CreateInvitee)
+		protected.GET("/gatherings/:gatheringID/invitees", handlers.ListInvitees)
+		protected.GET("/invitees/:id", handlers.GetInvitee)
+		protected.PUT("/invitees/:id", handlers.UpdateInvitee)
+		protected.DELETE("/invitees/:id", handlers.DeleteInvitee)
+
+		// Food Plate routes
+		protected.POST("/gatherings/:gatheringID/food-plates", handlers.CreateFoodPlate)
+		protected.GET("/gatherings/:gatheringID/food-plates", handlers.ListFoodPlates)
+		protected.GET("/food-plates/:id", handlers.GetFoodPlate)
+		protected.PUT("/food-plates/:id", handlers.UpdateFoodPlate)
+		protected.DELETE("/food-plates/:id", handlers.DeleteFoodPlate)
+
+		// Beverage routes
+		protected.POST("/gatherings/:gatheringID/beverages", handlers.CreateBeverage)
+		protected.GET("/gatherings/:gatheringID/beverages", handlers.ListBeverages)
+		protected.GET("/beverages/:id", handlers.GetBeverage)
+		protected.PUT("/beverages/:id", handlers.UpdateBeverage)
+		protected.DELETE("/beverages/:id", handlers.DeleteBeverage)
 	}
 
 	r.Run() // listen and serve on 0.0.0.0:8080
