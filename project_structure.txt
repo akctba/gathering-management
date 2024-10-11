@@ -1,0 +1,29 @@
+gathering-management/
+├── backend/
+│   ├── cmd/
+│   │   └── server/
+│   │       └── main.go
+│   ├── internal/
+│   │   ├── auth/
+│   │   ├── gathering/
+│   │   ├── invitee/
+│   │   ├── food/
+│   │   ├── beverage/
+│   │   └── email/
+│   ├── pkg/
+│   ├── configs/
+│   ├── migrations/
+│   ├── go.mod
+│   └── go.sum
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── utils/
+│   │   ├── App.js
+│   │   └── index.js
+│   ├── package.json
+│   └── package-lock.json
+└── README.md
