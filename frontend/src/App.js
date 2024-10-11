@@ -1,26 +1,25 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Navigation from './components/Navigation';
+import Dashboard from './pages/Dashboard';
+import GatheringDetail from './pages/GatheringDetail';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
-function App() {
+const App = () => {
   return (
     <Router>
-      <div className="App">
-        <header className="App-header">
-          <h1>Gathering Management</h1>
-        </header>
-        <main>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            {/* Add more routes here */}
-          </Switch>
-        </main>
+      <div className="app">
+        <Navigation />
+        <Switch>
+          <Route exact path="/" component={Dashboard} />
+          <Route path="/gathering/:id" component={GatheringDetail} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+        </Switch>
       </div>
     </Router>
   );
-}
-
-function Home() {
-  return <h2>Welcome to Gathering Management</h2>;
-}
+};
 
 export default App;
